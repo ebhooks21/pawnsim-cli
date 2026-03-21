@@ -36,4 +36,11 @@ public class Window {
             System.exit(1);
         }
     }
+
+    /**
+     * Method to get the terminal.
+     */
+    public Terminal getTerminal() {
+        return win;
+    }
 }
