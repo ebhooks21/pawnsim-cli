@@ -19,7 +19,8 @@ public class Game {
 			Terminal terminal = new DefaultTerminalFactory().createSwingTerminal();
 
 			SwingTerminalFrame frame = (SwingTerminalFrame) terminal;
-			frame.setTitle("Rogue");
+			frame.setTitle("Pawn Shop Simulator");
+			frame.setSize(800, 600);
 			frame.setVisible(true);
 
 			while (true) { 
