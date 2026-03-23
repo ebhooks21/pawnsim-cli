@@ -13,6 +13,9 @@ public class Game {
 	//Variable for the game window
 	private Window win;
 
+	//Variable for the player
+	private Player player;
+
 	/**
 	 * Main constructor for the Game class.
 	 */
@@ -20,10 +23,9 @@ public class Game {
 		//Start the game
 		win = new Window(800, 600);
 
-		(win.getTerminal()).enterPrivateMode();
-		(win.getTerminal()).clearScreen();
-		(win.getTerminal()).setBackgroundColor(TextColor.ANSI.GREEN);
-		(win.getTerminal()).flush();
+		player = new Player("Burlus", "Burlus' Shop");
+
+		win.drawPlayerInfoArea(player);
 	}
 
 	/**

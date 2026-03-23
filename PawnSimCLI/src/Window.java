@@ -6,6 +6,7 @@
 
 import java.io.IOException;
 
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.swing.SwingTerminalFrame;
@@ -29,6 +30,12 @@ public class Window {
             frame.setVisible(true);
             frame.setSize(width, height);
 
+            //Setup the terminal for writing
+            win.enterPrivateMode();
+            win.clearScreen();
+
+
+
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -42,5 +49,20 @@ public class Window {
      */
     public Terminal getTerminal() {
         return win;
+    }
+
+    /**
+     * Method to draw the player information area
+     */
+    public void drawPlayerInfoArea(Player p) {
+        try {
+            win.setCursorPosition(1, 1);
+            win.putString(p.getPlayerName());
+            win.flush();
+        }
+
+        catch(IOException ioe) {
+            System.out.println(ioe.getStackTrace());
+        }
     }
 }

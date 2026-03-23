@@ -21,4 +21,11 @@ public class Player {
         pawnShopName = sName;
         shopMoney = 0.00;
     }
+
+    /**
+     * Method to get the player's name.
+     */
+    public String getPlayerName() {
+        return playerName;
+    }
 }
