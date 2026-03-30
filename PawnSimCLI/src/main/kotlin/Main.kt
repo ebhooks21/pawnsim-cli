@@ -13,7 +13,7 @@ fun main() {
     };
 
     DefaultTerminalFactory().createSwingTerminal().use { terminal ->
-        terminal.title = "Test";
+        terminal.title = "Pawn Shop Simulator";
         terminal.isVisible = true;
         terminal.size = Dimension(800, 600);
 
