@@ -22,7 +22,7 @@ class GameWindow(var shopName: String, var winWidth: Int, var winHeight: Int) {
     /**
      * Method to create the game window.
      */
-    fun createGameWindow() {
+    fun createGameWindow(): Boolean {
         terminal  = DefaultTerminalFactory().createSwingTerminal()
 
         if(terminal == null) {
@@ -44,8 +44,6 @@ class GameWindow(var shopName: String, var winWidth: Int, var winHeight: Int) {
         screen?.startScreen();
         screen?.setCharacter(TerminalPosition(5, 5), TextCharacter('s'))
 
-        while(true){
-
-        }
+        return true
     }
 }
