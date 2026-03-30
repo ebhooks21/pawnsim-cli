@@ -9,6 +9,7 @@ fun main() {
 
     if(gWin.createGameWindow()) {
         val game = Game(gWin)
+        game.start()
     }
 
     else {

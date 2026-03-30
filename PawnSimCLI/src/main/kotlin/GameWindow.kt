@@ -16,34 +16,35 @@ import kotlin.system.exitProcess
 
 class GameWindow(var shopName: String, var winWidth: Int, var winHeight: Int) {
     //Variables
-    var screen: TerminalScreen? = null
-    var terminal: SwingTerminalFrame? = null
+    lateinit var screen: TerminalScreen
+    lateinit var terminal: SwingTerminalFrame
 
     /**
      * Method to create the game window.
      */
     fun createGameWindow(): Boolean {
+        //Create a new Swing Terminal
         terminal  = DefaultTerminalFactory().createSwingTerminal()
 
-        if(terminal == null) {
-            println("Error while creating terminal.")
-            exitProcess(1);
-        }
+        //Set the terminal variables
+        terminal.title = shopName
+        terminal.isVisible = true
+        terminal.size = Dimension(winWidth, winHeight)
 
-        terminal!!.title = shopName
-        terminal!!.isVisible = true
-        terminal!!.size = Dimension(winWidth, winHeight)
-
+        //Get a copy of the Terminal's screen
         screen = (TerminalScreen(terminal))
 
-        if(screen == null) {
-            println("Error while creating screen.")
-            exitProcess(1)
-        }
-
-        screen?.startScreen();
-        screen?.setCharacter(TerminalPosition(5, 5), TextCharacter('s'))
+        //Clear the screen and start tracking
+        screen.startScreen();
 
         return true
+    }
+
+    /**
+     * Method to write a string to the screen.
+     */
+    fun writeStringToScreen(str: String, xPos: Int, yPos: Int) {
+        screen.newTextGraphics().putString(xPos, yPos, str)
+        screen.refresh()
     }
 }
