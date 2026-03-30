@@ -1,27 +1,10 @@
 package org.ericbhooks
 
-import com.googlecode.lanterna.TerminalPosition
-import com.googlecode.lanterna.TextCharacter
-import com.googlecode.lanterna.screen.TerminalScreen
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory
-import java.awt.Dimension
+
 
 fun main() {
-    TerminalScreen(DefaultTerminalFactory().createSwingTerminal()).use { screen ->
-        screen.startScreen();
-        screen.setCharacter(TerminalPosition(5, 5), TextCharacter('s'));
-    };
+    //Start the game
+    var gWin = GameWindow("Pawn Shop Simulator", 800, 600)
 
-    DefaultTerminalFactory().createSwingTerminal().use { terminal ->
-        terminal.title = "Pawn Shop Simulator";
-        terminal.isVisible = true;
-        terminal.size = Dimension(800, 600);
-
-        (TerminalScreen(terminal)).use { screen ->
-            screen.startScreen();
-            while(true){
-
-            }
-        }
-    }
+    gWin.createGameWindow()
 }
